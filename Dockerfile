@@ -11,7 +11,6 @@ RUN apt-get install -y curl wget curl
 WORKDIR /iri
 COPY --from=builder /iri/target/iri-1.4.2.1.jar iri.jar
 COPY logback.xml /iri
-
 COPY run.sh /run.sh
 
 VOLUME /iri
