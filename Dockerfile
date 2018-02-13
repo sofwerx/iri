@@ -4,12 +4,15 @@ COPY . /iri
 RUN mvn clean package
 
 FROM openjdk:jre-slim
+
+RUN apt-get update
+RUN apt-get install -y curl wget curl
+
 WORKDIR /iri
 COPY --from=builder /iri/target/iri-1.4.2.1.jar iri.jar
 COPY logback.xml /iri
 
-RUN apt-get update
-RUN apt-get install -y curl
+COPY run.sh /run.sh
 
 VOLUME /iri
 
