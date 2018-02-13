@@ -7,6 +7,10 @@ FROM openjdk:jre-slim
 WORKDIR /iri
 COPY --from=builder /iri/target/iri-1.4.2.1.jar iri.jar
 COPY logback.xml /iri
+
+RUN apt-get update
+RUN apt-get install -y curl
+
 VOLUME /iri
 
 EXPOSE 14265

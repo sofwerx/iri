@@ -1,0 +1,27 @@
+version: '2'
+
+volumes:
+
+  iri-data:
+    driver: local
+
+networks:
+
+  default:
+    driver: bridge
+
+services:
+
+  iri:
+    build:
+      context: .
+      dockerfile: Dockerfile.${ARCH}
+    container_name: iri
+    hostname: iri
+    volumes:
+      - iri-data:/iri
+    ports:
+      - 14265:14265
+      - 14777:14777/udp
+      - 15777:15777
+
