@@ -15,7 +15,7 @@ services:
   iri:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.${ARCH}
     container_name: iri
     hostname: iri
     volumes:

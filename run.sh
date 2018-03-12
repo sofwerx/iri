@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -e
 
 if [ ! -d /iri/mainnetdb ]; then
   curl -sLo /iri/IOTA.partners-mainnetdb.tar.gz http://db.iota.partners/IOTA.partners-mainnetdb.tar.gz
